@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styledcomponents/GlobalStyles';
+import { darkTheme, lightTheme } from './styledcomponents/Theme';
+
+// React components
+import Nav from './components/Nav/Nav';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [themeState, setThemeState] = useState('light');
+    const theme = {
+        ...(themeState === 'light' ? lightTheme : darkTheme),
+        breakpoints: {
+            lg_tablet: 'max-width: 1100px',
+            tablet: 'max-width: 770px',
+            mobile: 'max-width: 510px',
+            sm_mobile: 'max-width: 350px',
+        },
+    };
+
+    return (
+        <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <Router>
+                <Nav />
+                <Route path='/' exact>
+                    <div>home </div>
+                </Route>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;
