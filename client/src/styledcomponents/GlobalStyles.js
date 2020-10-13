@@ -13,6 +13,10 @@ export default createGlobalStyle`
         transform: translate3d(0);
         scroll-behavior: smooth;
     }
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
     
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -25,9 +29,6 @@ export default createGlobalStyle`
     -moz-appearance: textfield;
     }
     
-    &::-webkit-scrollbar {
-        width: 0;
-    }
     
     input,
     button {
@@ -37,22 +38,27 @@ export default createGlobalStyle`
         font-size: 16px;
         border: none;
     }
+    
     input:focus,
     button:focus {
         outline: none;
     }
+
     button {
         cursor: pointer;
     }
+
     label {
         font-weight: 700 !important;
     }
+
     img {
         width: 100%;
         height: 100%;
         object-fit: cover !important;
         object-position: center !important;
     }
+
     h1,h2,h3,h4,h5,h6{
         font-weight: 800;
     }

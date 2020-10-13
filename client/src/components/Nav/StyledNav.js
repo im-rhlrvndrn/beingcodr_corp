@@ -7,7 +7,7 @@ export default styled.div`
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: white;
+    /* background-color: white; */
     box-shadow: 0 5px 10px 0 white;
 
     .navWrapper {
